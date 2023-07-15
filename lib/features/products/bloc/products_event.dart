@@ -4,3 +4,7 @@ part of 'products_bloc.dart';
 abstract class ProductsEvent {}
 
 class ProductsInitialFetchEvent extends ProductsEvent {}
+
+class ProductsSecondFetchEvent extends ProductsEvent {}
+
+class ProductsLastFetchEvent extends ProductsEvent {}
