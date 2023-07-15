@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fooda/constants/assets_constants.dart';
 import 'package:fooda/widgets/longButton.dart';
+
+import '../home/home.dart';
+import 'bloc/onboard_bloc_bloc.dart';
 
 class OnboardPage extends StatelessWidget {
   const OnboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final OnboardBlocBloc onboardBlocBloc = OnboardBlocBloc();
     return Scaffold(
       backgroundColor: const Color(0xffFF4B3A),
       body: SafeArea(
@@ -62,11 +67,31 @@ class OnboardPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                long_Button(
-                  text: 'Get Started',
-                  onTap: () {},
-                  btnColor: Colors.white,
-                  textColor: const Color(0xffFF460A),
+                BlocConsumer<OnboardBlocBloc, OnboardBlocState>(
+                  bloc: onboardBlocBloc,
+                  listenWhen: (previous, current) =>
+                      current is OnboardActionState,
+                  buildWhen: (previous, current) =>
+                      current is! OnboardActionState,
+                  listener: (context, state) {
+                    if (state is NavigateToHomeState) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Home()));
+                    }
+                  },
+                  builder: (context, state) {
+                    return long_Button(
+                      text: 'Get Started',
+                      onTap: () {
+                        onboardBlocBloc.add(HomeButtonClickedEvent());
+                        // print('jjjj');
+                      },
+                      btnColor: Colors.white,
+                      textColor: const Color(0xffFF460A),
+                    );
+                  },
                 )
               ],
             ),
