@@ -5,6 +5,7 @@ import 'package:fooda/constants/assets_constants.dart';
 import 'package:fooda/widgets/longButton.dart';
 
 import '../home/home.dart';
+import '../home/nav.dart';
 import 'bloc/onboard_bloc_bloc.dart';
 
 class OnboardPage extends StatelessWidget {
@@ -78,7 +79,7 @@ class OnboardPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Home()));
+                              builder: (context) => const HomeView()));
                     }
                   },
                   builder: (context, state) {
@@ -86,7 +87,6 @@ class OnboardPage extends StatelessWidget {
                       text: 'Get Started',
                       onTap: () {
                         onboardBlocBloc.add(HomeButtonClickedEvent());
-                        // print('jjjj');
                       },
                       btnColor: Colors.white,
                       textColor: const Color(0xffFF460A),
