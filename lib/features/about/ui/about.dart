@@ -11,7 +11,7 @@ import '../bloc/about_bloc.dart';
 
 class About extends StatefulWidget {
   final DataModel? dataModel;
-  const About({super.key, this.dataModel});
+  const About({super.key, required this.dataModel});
 
   @override
   State<About> createState() => _AboutState();
@@ -174,13 +174,16 @@ class _AboutState extends State<About> {
                   if (state is NavigateToCartState) {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const Cart()));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Item Carted')));
                   }
                 },
                 builder: (context, state) {
                   return long_Button(
                       text: 'Add to cart',
                       onTap: () {
-                        aboutBloc.add(AboutButtonClicked());
+                        aboutBloc.add(CartButtonClickedEvent(
+                            clickedProduct: widget.dataModel!));
                       },
                       btnColor: const Color(0xffFA4A0C),
                       textColor: Colors.white);

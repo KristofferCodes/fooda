@@ -4,3 +4,5 @@ part of 'home_bloc_bloc.dart';
 abstract class HomeBlocState {}
 
 class HomeBlocInitial extends HomeBlocState {}
+
+class HomeLoadingState extends HomeBlocState {}

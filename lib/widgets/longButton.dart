@@ -27,7 +27,7 @@ class long_Button extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-                color: textColor, fontSize: 15, fontWeight: FontWeight.w500),
+                color: textColor, fontSize: 15, fontWeight: FontWeight.w600),
           ),
         ),
       ),
