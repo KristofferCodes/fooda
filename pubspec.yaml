@@ -40,6 +40,7 @@ dependencies:
   bloc: ^8.1.2
   flutter_bloc: ^8.1.3
   http: ^1.1.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,36 @@ flutter:
     - family: SF-Pro-Display
       fonts:
         - asset: assets/sf-pro-display-font/SF-Pro-Display-Black.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-BlackItalic.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-Bold.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-BoldItalic.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-Heavy.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-HeavyItalic.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-Light.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-LightItalic.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-Medium.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-MediumItalic.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-Regular.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-RegularItalic.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-Semibold.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-SemiboldItalic.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-Thin.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-ThinItalic.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-Ultralight.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-UltralightItalic.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Display-Ultralight.ttf
+        - asset: assets/sf-pro-display-font/sf-pro-text-bold.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Text-BoldItalic.ttf
+        - asset: assets/sf-pro-display-font/sf-pro-text-heavy.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Text-HeavyItalic.ttf
+        - asset: assets/sf-pro-display-font/sf-pro-text-light.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Text-LightItalic.ttf
+        - asset: assets/sf-pro-display-font/sf-pro-text-medium.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Text-MediumItalic.ttf
+        - asset: assets/sf-pro-display-font/sf-pro-text-regular.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Text-RegularItalic.ttf
+        - asset: assets/sf-pro-display-font/sf-pro-text-semibold.ttf
+        - asset: assets/sf-pro-display-font/SF-Pro-Text-SemiboldItalic.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

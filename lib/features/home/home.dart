@@ -112,13 +112,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) {
                                   return ProductCard(
-                                      imageName: successState
-                                          .products[index].images!.first,
-                                      title: successState
-                                          .products[index].description
-                                          .toString(),
-                                      price: successState.products[index].price
-                                          .toString());
+                                    imageName: successState
+                                        .products[index].images!.first,
+                                    title: successState
+                                        .products[index].description
+                                        .toString(),
+                                    price: successState.products[index].price
+                                        .toString(),
+                                    dataModel: successState.products[index],
+                                  );
                                 });
                           default:
                             return const SizedBox();
@@ -143,13 +145,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (_, index) {
                                   return ProductCard(
-                                      imageName: successState
-                                          .products[index].images!.first,
-                                      title: successState
-                                          .products[index].description
-                                          .toString(),
-                                      price: successState.products[index].price
-                                          .toString());
+                                    imageName: successState
+                                        .products[index].images!.first,
+                                    title: successState
+                                        .products[index].description
+                                        .toString(),
+                                    price: successState.products[index].price
+                                        .toString(),
+                                    dataModel: successState.products[index],
+                                  );
                                 });
                           default:
                             return const SizedBox();
@@ -174,13 +178,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (_, index) {
                                   return ProductCard(
-                                      imageName: successState
-                                          .products[index].images!.first,
-                                      title: successState
-                                          .products[index].description
-                                          .toString(),
-                                      price: successState.products[index].price
-                                          .toString());
+                                    imageName: successState
+                                        .products[index].images!.first,
+                                    title: successState
+                                        .products[index].description
+                                        .toString(),
+                                    price: successState.products[index].price
+                                        .toString(),
+                                    dataModel: successState.products[index],
+                                  );
                                 });
                           default:
                             return const SizedBox();

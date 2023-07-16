@@ -13,4 +13,9 @@ class AssetsConstants {
   static const String cart = '$_path/cart.svg';
   static const String ham = '$_path/ham.svg';
   static const String fruits = '$_path/fruits.jpeg';
+  static const String back = '$_path/back.svg';
+  static const String heart = '$_path/heart.svg';
+  static const String whiteHeart = '$_path/whiteHeart.svg';
+  static const String cartText = '$_path/CartText.svg';
+  static const String swipe = '$_path/swipe.svg';
 }

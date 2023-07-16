@@ -31,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
             currentIndex: _page,
             onTap: onPageChange,
             border: Border.all(style: BorderStyle.none),
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
             items: [
               BottomNavigationBarItem(
                 icon: Icon(
