@@ -13,9 +13,9 @@ class CartButtonClickedEvent extends AboutEvent {
   });
 }
 
-class LikedButtonClicked extends AboutEvent {
-  final DataModel clickedProduct;
-  LikedButtonClicked({
-    required this.clickedProduct,
-  });
-}
+// class LikedButtonClicked extends AboutEvent {
+//   final DataModel clickedProduct;
+//   LikedButtonClicked({
+//     required this.clickedProduct,
+//   });
+// }

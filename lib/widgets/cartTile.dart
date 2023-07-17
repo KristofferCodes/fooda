@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:fooda/features/products/models/post_data_ui_model.dart';
 
 import '../features/cart/bloc/cart_bloc.dart';
 
-class CartTile extends StatelessWidget {
+class CartTile extends StatefulWidget {
   final DataModel dataModel;
   final CartBloc cartBloc;
   const CartTile({super.key, required this.dataModel, required this.cartBloc});
 
   @override
+  State<CartTile> createState() => _CartTileState();
+}
+
+class _CartTileState extends State<CartTile> {
+  @override
   Widget build(BuildContext context) {
+    final CartBloc cartBloc = CartBloc();
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
       child: Slidable(
@@ -41,23 +48,39 @@ class CartTile extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: InkWell(
-                onTap: () {},
-                borderRadius: BorderRadius.circular(100),
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                      alignment: Alignment.center,
-                      width: double.infinity, // space for actionPan
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        Icons.delete_outline,
-                        color: Colors.white,
-                      )),
-                ),
+              child: BlocConsumer<CartBloc, CartState>(
+                bloc: cartBloc,
+                listenWhen: (previous, current) => current is CartActionState,
+                buildWhen: (previous, current) => current is! CartActionState,
+                listener: (context, state) {
+                  // if (state is NavigateToCartState) {
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //       const SnackBar(content: Text('Item Carted')));
+                  // }
+                },
+                builder: (context, state) {
+                  return InkWell(
+                    onTap: () {
+                      cartBloc.add(RemoveFromCartEvent(
+                          clickedProduct: widget.dataModel));
+                    },
+                    borderRadius: BorderRadius.circular(100),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Container(
+                          alignment: Alignment.center,
+                          width: double.infinity, // space for actionPan
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.delete_outline,
+                            color: Colors.white,
+                          )),
+                    ),
+                  );
+                },
               ),
             )
           ],
@@ -88,8 +111,8 @@ class CartTile extends StatelessWidget {
                     width: 60,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          image:
-                              NetworkImage(dataModel.images!.first.toString()),
+                          image: NetworkImage(
+                              widget.dataModel.images!.first.toString()),
                           fit: BoxFit.cover),
                       shape: BoxShape.circle,
                       color: Colors.white,
@@ -111,12 +134,14 @@ class CartTile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
-                            dataModel.description.toString().substring(0, 12),
+                            widget.dataModel.description
+                                .toString()
+                                .substring(0, 12),
                             style: const TextStyle(
                                 fontSize: 20.0, fontWeight: FontWeight.w600),
                           ),
                           Text(
-                            '\$${dataModel.price}',
+                            '\$${widget.dataModel.price}',
                             style: const TextStyle(
                                 fontSize: 17,
                                 color: Color(0xffFA4A0C),

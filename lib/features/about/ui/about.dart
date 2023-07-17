@@ -174,6 +174,7 @@ class _AboutState extends State<About> {
                   if (state is NavigateToCartState) {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const Cart()));
+
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Item Carted')));
                   }

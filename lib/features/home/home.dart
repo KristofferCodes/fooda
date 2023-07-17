@@ -32,7 +32,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             height: MediaQuery.sizeOf(context).height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -44,7 +44,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SvgPicture.asset(AssetsConstants.ham),
-                      SvgPicture.asset(AssetsConstants.cart),
+                      const SizedBox(height: 1),
                     ],
                   ),
                 ),

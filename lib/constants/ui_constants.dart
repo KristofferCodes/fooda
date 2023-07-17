@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../features/about/ui/about.dart';
 import '../features/cart/ui/cart.dart';
+import '../features/favourites/favourites.dart';
 import '../features/home/home.dart';
-import '../features/liked/likedPage.dart';
+import '../features/profile/profile.dart';
+import '../features/purchases/purchases.dart';
 
 class UIConstants {
-  static List<Widget> bottomTabBarPages = [
-    const Home(),
-    const LikePage(),
-    Cart(),
+  static List<Widget> bottomTabBarPages = const [
+    Home(),
+    Favourites(),
+    Profile(),
+    Purchases()
   ];
 }

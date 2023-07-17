@@ -33,54 +33,56 @@ class _CartState extends State<Cart> {
         backgroundColor: Colors.white,
         body: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                          onTap: () => Navigator.pop(context),
-                          child: SvgPicture.asset(AssetsConstants.back)),
-                      SvgPicture.asset(AssetsConstants.cartText),
-                      const SizedBox(height: 1),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  SvgPicture.asset(AssetsConstants.swipe),
-                  BlocConsumer<CartBloc, CartState>(
-                    bloc: cartBloc,
-                    listenWhen: (previous, current) =>
-                        current is CartActionState,
-                    buildWhen: (previous, current) =>
-                        current is! CartActionState,
-                    listener: (context, state) {
-                      // TODO: implement listener
-                    },
-                    builder: (context, state) {
-                      switch (state.runtimeType) {
-                        case CartSuccessState:
-                          final successState = state as CartSuccessState;
-                          return ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: successState.cartItems.length,
-                              itemBuilder: (_, index) {
-                                return CartTile(
-                                  cartBloc: cartBloc,
-                                  dataModel: successState.cartItems[index],
-                                );
-                              });
+            SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                            onTap: () => Navigator.pop(context),
+                            child: SvgPicture.asset(AssetsConstants.back)),
+                        SvgPicture.asset(AssetsConstants.cartText),
+                        const SizedBox(height: 1),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    SvgPicture.asset(AssetsConstants.swipe),
+                    BlocConsumer<CartBloc, CartState>(
+                      bloc: cartBloc,
+                      listenWhen: (previous, current) =>
+                          current is CartActionState,
+                      buildWhen: (previous, current) =>
+                          current is! CartActionState,
+                      listener: (context, state) {
+                        // TODO: implement listener
+                      },
+                      builder: (context, state) {
+                        switch (state.runtimeType) {
+                          case CartSuccessState:
+                            final successState = state as CartSuccessState;
+                            return ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: successState.cartItems.length,
+                                itemBuilder: (_, index) {
+                                  return CartTile(
+                                    cartBloc: cartBloc,
+                                    dataModel: successState.cartItems[index],
+                                  );
+                                });
 
-                        default:
-                      }
-                      return Container();
-                    },
-                  ),
-                ],
+                          default:
+                        }
+                        return Container();
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
             Align(
